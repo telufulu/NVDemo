@@ -1,0 +1,13 @@
+<!DOCTYPE html> <!-- Le indicamos al ordenador que es un documento HTML -->
+<html lang="es"> <!-- Le indicamos el idioma -->
+  <head> <!-- La cabecera es donde guardamos instrucciones que van a afectar a toda la página, como el título, los colores y estilos, scripts, configuración según el dispositivo... -->
+    <title>Number Verification</title> <!-- Es una página sencilla, con el título solo basta -->
+    <script src="script.js" defer></script> <!-- Aquí el archivo con el código javascript para el primer paso de autenticación -->
+  </head>
+  <body> <!-- El cuerpo es donde va el contenido de la página -->
+    <h1>Number Verification</h1> <!-- El título de la página. Este se muestra a diferencia del otro -->
+    <h2>Enter your phone number: </h2>
+    <input type="text" id="phone_number" placeholder="+34"> <!-- La casilla para introducir el número de teléfono -->
+    <button onclick="verify()">Verify</button> <!-- El botón para enviar el número de teléfono al script-->
+    <p id="result"></p>
+  </body>
