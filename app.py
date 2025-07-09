@@ -12,9 +12,10 @@ def home():
 def number_verification():
     # Datos necesarios para conseguir el resultado
     code = request.args.get('code', '')
-    phone_number = request.args.get('state', '')
-    client_id = "e45dae56-fb77-4b10-b138-2cecbff47d7f"
-    client_secret = "d5c358bb-1701-431a-b360-998914331b19"
+    phone_number = request.args.get('state', '').replace(" ", "+")
+
+    client_id = "your_client_id"
+    client_secret = "your_client_secret"
     app_credentials = f"{client_id}:{client_secret}"
     credentials = base64.b64encode(app_credentials.encode('utf-8')).decode('utf-8')
     
@@ -36,17 +37,17 @@ def number_verification():
 
     # headers y body para obtener el resultado final
     headers = {
+       # "accept": "application/json"
         "Content-Type": "application/json",
         "Authorization": f"Bearer {access_token}"
     }
     body = {
-        "msisdn": phone_number
+        "phoneNumber": phone_number
     }
     response = requests.post("https://sandbox.opengateway.telefonica.com/apigateway/number-verification/v0/verify",
                              headers=headers,
                              json=body
                              )
-    return response.text
     result = response.json().get("devicePhoneNumberVerified")
     return f"Phone number {'verified' if result else 'does not match mobile line'}"
     

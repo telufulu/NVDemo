@@ -9,12 +9,12 @@
     <h1>Number verification</h1>
     <!-- Nos permite pasar variables a una url y hacer una petición a esa url-->
     <form id="apiRequestForm" action="https://sandbox.opengateway.telefonica.com/apigateway/authorize" method="GET">
-        <input type="hidden" name="client_id" value="e45dae56-fb77-4b10-b138-2cecbff47d7f">
+        <input type="hidden" name="client_id" value="your_client_id">
         <input type="hidden" name="response_type" value="code">
         <input type="hidden" name="scope" value="dpv:FraudPreventionAndDetection#number-verification-verify-read">
-        <input type="hidden" name="redirect_uri" value="https://crispy-dollop-4rj67w465xr3j9gr-5000.app.github.dev/number_verification">
+        <input type="hidden" name="redirect_uri" value="your_callback_url">
         <label for="state">Your phone number:</label>
-        <input type="text" id="state" name="state" value="+34" required>
+        <input type="text" id="state" name="state" placeholder="+34666555343" required>
         <!-- Botón que hace que empiece el flujo-->
         <button type="submit">Verify</button>
     </form>
